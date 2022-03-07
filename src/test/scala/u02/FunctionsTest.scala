@@ -5,6 +5,8 @@ import org.junit.Test
 import u02.lab02.Functions
 import u02.lab02.Functions.{compose, fibonacci, funWithCurrying, funWithNoCurrying, negPredicate, negWithGenerics, parity, valWithCurrying, valWithNoCurrying}
 import u02.lab02.Es7.{Shape, perimeter, area}
+import u02.Optionals.Option.*
+import u02.Optionals.Option
 
 class FunctionsTest :
 
@@ -81,3 +83,7 @@ class FunctionsTest :
 
   @Test def testSquareArea() =
     assertEquals(100, area(Shape.Square(10)), 0)
+
+  @Test def testFilterOptional() = {
+    assertEquals(Option.Some(5), filter(Some(5))(_ > 2))
+  }
