@@ -13,6 +13,8 @@ object Functions :
 
   def negWithGenerics[A](predicate: A => Boolean): A => Boolean = !predicate(_)
 
+  //Currying
+  val valWithCurrying: Int => Int => Int => Boolean = (x:Int) => (y:Int) => (z:Int) => x <= y && y <= z
+  val valWithNoCurrying: (Int, Int , Int) => Boolean = (x, y, z ) => x <= y && y <= z
   def funWithNoCurrying(x: Int, y: Int, z: Int): Boolean = x < y && y < z
-  
-  
+  def funWithCurrying(x: Int)(y: Int)(z: Int): Boolean = x < y && y < z
