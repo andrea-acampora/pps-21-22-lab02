@@ -3,7 +3,7 @@ package u02
 import org.junit.Assert.{assertEquals, assertFalse, assertTrue}
 import org.junit.Test
 import u02.lab02.Functions
-import u02.lab02.Functions.{negPredicate, negWithGenerics, parity}
+import u02.lab02.Functions.{funWithNoCurrying, negPredicate, negWithGenerics, parity}
 
 
 class FunctionsTest :
@@ -31,3 +31,6 @@ class FunctionsTest :
     val greaterThanZero: Int => Boolean = _ > 0
     val notGreaterThanZero: Int => Boolean = negWithGenerics(greaterThanZero)
     assertTrue(notEmptyPredicate("foo") && notGreaterThanZero(-2))
+
+  @Test def testFunWithNoCurrying() =
+    assertTrue(funWithNoCurrying(1,2,3) && !funWithNoCurrying(3,2,1))
