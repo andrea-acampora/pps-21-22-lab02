@@ -3,7 +3,7 @@ package u02
 import org.junit.Assert.{assertEquals, assertFalse, assertTrue}
 import org.junit.Test
 import u02.lab02.Functions
-import u02.lab02.Functions.{compose, funWithCurrying, funWithNoCurrying, negPredicate, negWithGenerics, parity, valWithCurrying, valWithNoCurrying}
+import u02.lab02.Functions.{compose, fibonacci, funWithCurrying, funWithNoCurrying, negPredicate, negWithGenerics, parity, valWithCurrying, valWithNoCurrying}
 
 
 class FunctionsTest :
@@ -58,3 +58,8 @@ class FunctionsTest :
 
   @Test def testCompose() =
     assertEquals(compose(_ - 1, _ * 2)(5), 9)
+
+  @Test def testFibonacci() =
+    assertEquals(fibonacci(0), 0)
+    assertEquals(fibonacci(1), 1)
+    assertEquals(fibonacci(4), 3)
