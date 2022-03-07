@@ -18,3 +18,7 @@ object Functions :
   val valWithNoCurrying: (Int, Int , Int) => Boolean = (x, y, z ) => x <= y && y <= z
   def funWithNoCurrying(x: Int, y: Int, z: Int): Boolean = x < y && y < z
   def funWithCurrying(x: Int)(y: Int)(z: Int): Boolean = x < y && y < z
+
+  def compose(f: Int => Int, g: Int => Int): Int => Int = x => f(g(x))
+
+  def composeWithGenerics[A,B,C](f: B=>C, g: A=> B): A => C = x => f(g(x))
