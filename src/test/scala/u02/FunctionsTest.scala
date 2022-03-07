@@ -3,7 +3,7 @@ package u02
 import org.junit.Assert.{assertEquals, assertFalse, assertTrue}
 import org.junit.Test
 import u02.lab02.Functions
-import u02.lab02.Functions.{funWithCurrying, funWithNoCurrying, negPredicate, negWithGenerics, parity, valWithCurrying, valWithNoCurrying}
+import u02.lab02.Functions.{compose, funWithCurrying, funWithNoCurrying, negPredicate, negWithGenerics, parity, valWithCurrying, valWithNoCurrying}
 
 
 class FunctionsTest :
@@ -55,3 +55,6 @@ class FunctionsTest :
 
   @Test def testFalseFunWithCurrying() =
     assertFalse(funWithCurrying(3)(2)(1))
+
+  @Test def testCompose() =
+    assertEquals(compose(_ - 1, _ * 2)(5), 9)
