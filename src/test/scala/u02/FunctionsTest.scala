@@ -3,8 +3,7 @@ package u02
 import org.junit.Assert.{assertEquals, assertFalse, assertTrue}
 import org.junit.Test
 import u02.lab02.Functions
-import u02.lab02.Functions.parity
-import u02.lab02.Functions.negPredicate
+import u02.lab02.Functions.{negPredicate, negWithGenerics, parity}
 
 
 class FunctionsTest :
@@ -18,15 +17,17 @@ class FunctionsTest :
     val oddValue: Int = 3
     assertEquals(parity(oddValue), "odd")
 
-  @Test def parityWithMatchCase() =
+  @Test def parityWithMatchCaseTest() =
     val evenValue: Int = 2
-    val oddValue: Int = 3
     assertEquals(Functions.parityWithMatchCase(evenValue), "even")
-    assertEquals(Functions.parityWithMatchCase(oddValue), "odd")
 
   @Test def negPredicateTest() =
     val emptyPredicate: String => Boolean = _ == ""
     val notEmptyPredicate = negPredicate(emptyPredicate)
-    assertTrue(notEmptyPredicate("foo"))
-    assertFalse(notEmptyPredicate(""))
     assertTrue(notEmptyPredicate("foo") && !notEmptyPredicate(""))
+
+  @Test def negWithGenericsTest() =
+    val notEmptyPredicate: String => Boolean = negWithGenerics(_ == "")
+    val greaterThanZero: Int => Boolean = _ > 0
+    val notGreaterThanZero: Int => Boolean = negWithGenerics(greaterThanZero)
+    assertTrue(notEmptyPredicate("foo") && notGreaterThanZero(-2))
