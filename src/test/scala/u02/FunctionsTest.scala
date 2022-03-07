@@ -3,7 +3,7 @@ package u02
 import org.junit.Assert.{assertEquals, assertFalse, assertTrue}
 import org.junit.Test
 import u02.lab02.Functions
-import u02.lab02.Functions.{funWithNoCurrying, negPredicate, negWithGenerics, parity}
+import u02.lab02.Functions.{funWithCurrying, funWithNoCurrying, negPredicate, negWithGenerics, parity, valWithCurrying, valWithNoCurrying}
 
 
 class FunctionsTest :
@@ -26,11 +26,32 @@ class FunctionsTest :
     val notEmptyPredicate = negPredicate(emptyPredicate)
     assertTrue(notEmptyPredicate("foo") && !notEmptyPredicate(""))
 
-  @Test def negWithGenericsTest() =
+  @Test def negWithGenericsStringTest() =
     val notEmptyPredicate: String => Boolean = negWithGenerics(_ == "")
     val greaterThanZero: Int => Boolean = _ > 0
     val notGreaterThanZero: Int => Boolean = negWithGenerics(greaterThanZero)
-    assertTrue(notEmptyPredicate("foo") && notGreaterThanZero(-2))
+    assertTrue(notEmptyPredicate("foo"))
 
-  @Test def testFunWithNoCurrying() =
-    assertTrue(funWithNoCurrying(1,2,3) && !funWithNoCurrying(3,2,1))
+  @Test def negWithGenericsIntTest() =
+    val notEmptyPredicate: String => Boolean = negWithGenerics(_ == "")
+    val greaterThanZero: Int => Boolean = _ > 0
+    val notGreaterThanZero: Int => Boolean = negWithGenerics(greaterThanZero)
+    assertTrue(notGreaterThanZero(-2))
+
+  @Test def testValWithNoCurrying() =
+    assertTrue(valWithNoCurrying(1,2,3))
+
+  @Test def testValWithCurrying() =
+    assertTrue(valWithCurrying(1)(2)(3))
+
+  @Test def testTrueFunWithNoCurrying() =
+    assertTrue(funWithNoCurrying(1,2,3))
+
+  @Test def testFalseFunWithNoCurrying() =
+    assertFalse(funWithNoCurrying(3,2,1))
+
+  @Test def testTrueFunWithCurrying() =
+    assertTrue(funWithCurrying(1)(2)(3))
+
+  @Test def testFalseFunWithCurrying() =
+    assertFalse(funWithCurrying(3)(2)(1))
