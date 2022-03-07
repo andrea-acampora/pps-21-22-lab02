@@ -10,3 +10,5 @@ object Functions :
       case 1 => "odd"
 
   def negPredicate(predicate: String => Boolean): String => Boolean = !predicate(_)
+
+  def negWithGenerics[A](predicate: A => Boolean): A => Boolean = !predicate(_)
