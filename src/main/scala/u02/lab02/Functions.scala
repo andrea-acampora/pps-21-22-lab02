@@ -19,7 +19,7 @@ object Functions :
   def funWithNoCurrying(x: Int, y: Int, z: Int): Boolean = x < y && y < z
   def funWithCurrying(x: Int)(y: Int)(z: Int): Boolean = x < y && y < z
 
-  def compose(f: Int => Int, g: Int => Int): Int => Int = x => f(g(x))
+  def compose(f: Int => Int, g: Int => Int)(x: Int):Int = f(g(x))
 
   def composeWithGenerics[A,B,C](f: B=>C, g: A=> B): A => C = x => f(g(x))
 
@@ -35,4 +35,3 @@ object Functions :
       case 1 => b
       case _ => _fib(x-1, b, a+b)
     _fib(x, 0, 1)
-
