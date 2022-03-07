@@ -60,6 +60,7 @@ class FunctionsTest :
     assertEquals(compose(_ - 1, _ * 2)(5), 9)
 
   @Test def testFibonacci() =
-    assertEquals(fibonacci(0), 0)
-    assertEquals(fibonacci(1), 1)
-    assertEquals(fibonacci(4), 3)
+    assertEquals(fibonacci(10), 55)
+
+  @Test def testFibonacciWithTailRecursion() =
+    assertEquals(fibonacci(10), 55)
