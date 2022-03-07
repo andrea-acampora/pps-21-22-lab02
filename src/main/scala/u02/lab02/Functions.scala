@@ -22,3 +22,8 @@ object Functions :
   def compose(f: Int => Int, g: Int => Int): Int => Int = x => f(g(x))
 
   def composeWithGenerics[A,B,C](f: B=>C, g: A=> B): A => C = x => f(g(x))
+
+  def fibonacci(x: Int): Int = x match
+    case 0 => 0
+    case 1 => 1
+    case _ => fibonacci(x - 1) + fibonacci(x - 2)
