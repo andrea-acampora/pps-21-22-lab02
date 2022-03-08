@@ -2,7 +2,8 @@ package u02
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import u02.lab02.Es07Shapes.{Shape, area, perimeter}
+import u02.lab02.Es07Shapes.Shape.{area, perimeter}
+import u02.lab02.Es07Shapes.Shape
 
 class Es07ShapesTest :
 

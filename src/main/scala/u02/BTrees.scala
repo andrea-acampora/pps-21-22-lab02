@@ -20,11 +20,3 @@ object BTrees extends App:
       case Branch(l, r) => count(l, elem) + count(r, elem)
       case Leaf(e) if e == elem => 1
       case _ => 0
-
-  import Tree.*
-  val tree = Branch(Branch(Leaf(1), Leaf(2)), Leaf(1))
-  println(tree) // Branch(Branch(Leaf(1),Leaf(2)),Leaf(1))
-  println(size(tree)) // ..,3
-  println(find(tree, 1)) // true
-  println(find(tree, 4)) // false
-  println(count(tree, 1)) // 2
