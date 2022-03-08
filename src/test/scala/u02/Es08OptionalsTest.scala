@@ -3,7 +3,7 @@ package u02
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import u02.lab02.Es08Optionals.Option
-import u02.lab02.Es08Optionals.Option.{filter, map}
+import u02.lab02.Es08Optionals.Option.{filter, map, map2}
 
 class Es08OptionalsTest :
 
@@ -18,3 +18,6 @@ class Es08OptionalsTest :
 
   @Test def testNoneMapOptionals(): Unit =
     assertEquals(Option.None(), map(Option.None[Int]())( _ > 2))
+
+  @Test def testMap2Optional(): Unit =
+    assertEquals(Option.Some(6), map2[Int](Option.Some(2), Option.Some(4))((x,y) => x+y))
