@@ -8,7 +8,10 @@ import u02.lab02.Es08Optionals.Option.{filter, map, map2}
 class Es08OptionalsTest :
 
   @Test def testFilterOptional(): Unit =
-    assertEquals( Option.Some(5), filter[Int](Option.Some(5))(_ > 2) )
+    assertEquals(Option.Some(5), filter[Int](Option.Some(5))(_ > 2))
+
+  @Test def testNoneFilterOptional(): Unit =
+    assertEquals(Option.None(), filter[Int](Option.Some(5))(_ > 8))
 
   @Test def testTrueMapOptionals(): Unit =
     assertEquals(Option.Some(true), map(Option.Some(5))( _ > 2))

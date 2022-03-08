@@ -7,12 +7,12 @@ object Es07Shapes:
     case Circle(radius: Double)
     case Square(side: Double)
 
-  def perimeter(shape: Shape) = shape match
+  def perimeter(shape: Shape): Double = shape match
     case Shape.Rectangle(width, length) => 2*(width + length)
     case Shape.Circle(radius) => 2 * Math.PI * radius
     case Shape.Square(side) => 4 * side
 
-  def area(shape: Shape) = shape match
+  def area(shape: Shape): Double = shape match
     case Shape.Rectangle(width, length) => width * length
     case Shape.Circle(radius) => radius * radius * Math.PI
     case Shape.Square(side) => side * side

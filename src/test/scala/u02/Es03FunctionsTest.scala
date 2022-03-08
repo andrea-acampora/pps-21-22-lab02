@@ -19,18 +19,13 @@ class Es03FunctionsTest :
     assertEquals("even", parityWithMatchCase(evenValue))
 
   @Test def negPredicateTest(): Unit =
-    val emptyPredicate: String => Boolean = _ == ""
-    val notEmptyPredicate = negPredicate(emptyPredicate)
+    val notEmptyPredicate = negPredicate(_ == "")
     assertTrue(notEmptyPredicate("foo") && !notEmptyPredicate(""))
 
   @Test def negWithGenericsStringTest(): Unit =
     val notEmptyPredicate: String => Boolean = negWithGenerics(_ == "")
-    val greaterThanZero: Int => Boolean = _ > 0
-    val notGreaterThanZero: Int => Boolean = negWithGenerics(greaterThanZero)
     assertTrue(notEmptyPredicate("foo"))
 
   @Test def negWithGenericsIntTest(): Unit =
-    val notEmptyPredicate: String => Boolean = negWithGenerics(_ == "")
-    val greaterThanZero: Int => Boolean = _ > 0
-    val notGreaterThanZero: Int => Boolean = negWithGenerics(greaterThanZero)
+    val notGreaterThanZero: Int => Boolean = negWithGenerics(_ > 0)
     assertTrue(notGreaterThanZero(-2))

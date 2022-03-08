@@ -6,11 +6,17 @@ import u02.lab02.Es04Currying.{funWithCurrying, funWithNoCurrying, valWithCurryi
 
 class Es04CurryingTest :
 
-  @Test def testValWithNoCurrying(): Unit =
+  @Test def testTrueValWithNoCurrying(): Unit =
     assertTrue(valWithNoCurrying(1,2,3))
 
-  @Test def testValWithCurrying(): Unit =
+  @Test def testFalseValWithNoCurrying(): Unit =
+    assertFalse(valWithNoCurrying(3,2,1))
+
+  @Test def testTrueValWithCurrying(): Unit =
     assertTrue(valWithCurrying(1)(2)(3))
+
+  @Test def testFalseValWithCurrying(): Unit =
+    assertFalse(valWithCurrying(3)(2)(1))
 
   @Test def testTrueFunWithNoCurrying(): Unit =
     assertTrue(funWithNoCurrying(1, 2, 3))
