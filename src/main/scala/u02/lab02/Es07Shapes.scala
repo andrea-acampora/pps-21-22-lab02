@@ -1,6 +1,6 @@
 package u02.lab02
 
-object Es7:
+object Es07Shapes:
 
   enum Shape:
     case Rectangle(width: Double, length: Double)
