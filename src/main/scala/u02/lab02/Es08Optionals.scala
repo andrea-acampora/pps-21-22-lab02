@@ -23,8 +23,10 @@ object Es08Optionals extends App :
     def filter[A](opt: Option[A])(predicate: A => Boolean): Option[A] = opt match
       case Option.None() => Option.None()
       case Option.Some(a) => if (predicate(a)) opt else Option.None()
-    
-    def map() = ()
+
+    def map[A](opt: Option[A])(predicate: A => Boolean): Option[Boolean] = opt match
+      case Option.None() => Option.None()
+      case Option.Some(a) => if (predicate(a)) Option.Some(true) else Option.Some(false)
 
     def map2() = ()
 
