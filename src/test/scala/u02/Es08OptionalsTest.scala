@@ -21,3 +21,6 @@ class Es08OptionalsTest :
 
   @Test def testMap2Optional(): Unit =
     assertEquals(Option.Some(6), map2[Int](Option.Some(2), Option.Some(4))((x,y) => x+y))
+
+  @Test def testWrongMap2Optional(): Unit =
+    assertEquals(Option.None(), map2[Int](Option.Some(2), Option.None())((x,y) => x+y))
